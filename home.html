@@ -1,95 +1,12 @@
 <!DOCTYPE html>
 <html>
-<style>
-	.light-grey{
-		background-color: #f1f1f1!important
-	}
-	.content{
-		max-width: 980px;
-		margin-left: auto;
-    	margin-right: auto;
-    }
-    .margin{
-    	margin-top: 75px!important;
-    	margin-bottom: 75px!important;
-    }
-    .row-padding{
-    	padding: 2 8px;
-    }
-    .third{
-    	width: 25%;
-    	float:left;
-    	padding:0 8px;
-    }
-    .white{
-    	color:#000!important;
-    	background-color:#fff!important;
-    }
-    .text-grey{
-    	text-align: center;
-    	color:#757575!important
-    }
-    .grid-container{
-    	display: grid;
-    	grid-template-columns: auto auto auto auto auto auto auto;
-    	row-gap: 1px;
-    }
-    .row1{
-    	background-color: teal;
-    }
-    .month{
-    	font-size: 30px;
-    	padding-bottom: 10px;
-    	text-align: center;
-    	grid-column-start: 2;
-    	grid-column-end: 7;
-    	background-color: #91d0c9;
-    }
-    .day-1{
-    	grid-column-start: 6;
-    }
-    .active{
-    	background-color: #008B8B;
-    	color: white;
-    }
-    .grid-item{
-    	text-align: center;
-    	padding: 1px;
-    }
-    .grid-day{
-    	text-align: center;
-    	padding: 1px;
-    	background-color: #008B8B;
-    	color: ghostwhite;
-    }
-    .arrow {
-	  border: solid black;
-	  border-width: 0 3px 3px 0;
-	  display: inline-block;
-	  padding: 3px;
-	}
-
-	.right {
-	  transform: rotate(-45deg);
-	  -webkit-transform: rotate(-45deg);
-	}
-
-	.left {
-	  transform: rotate(135deg);
-	  -webkit-transform: rotate(135deg);
-	}
-	.col1{
-		background-color: #91d0c9;
-	}
-
-</style>
 <head>
 <title>Personal Dashboard</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="ToDoListStyle.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </style>
@@ -102,8 +19,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   <!-- The Grid -->
   <div class="row-padding">
   
+  <div class="container">
     <!-- Left Column -->
-    <div class="third">
+    <div class="grid-item">
     	<div class="white text-grey">
       		<h1> Pranav Debbad </h1>
       	</div>
@@ -150,9 +68,81 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     			<div class = "grid-item">29</div>
     			<div class = "grid-item">30</div>
     		</div>
+    	</div>
+    </div>
+
+    <div class="grid-item todo">
+    	<div id="myDIV" class="header">
+		  <h2>To-Do List</h2>
+		  <input type="text" id="myInput" placeholder="Enter task...">
+		  <span onclick="newElement()" class="addBtn">Add</span>
+		</div>
+
+		<ul id="myUL">
+		  <li>Hit the gym</li>
+		  <li class="checked">Pay bills</li>
+		  <li>Meet Ishaan</li>
+		  <li>Buy eggs</li>
+		</ul>
+    </div>
    
+</div>
 
-  	</div>
+<script>
+	var myNodelist = document.getElementsByTagName("LI");
+	var i;
+	for (i = 0; i < myNodelist.length; i++) {
+	  var span = document.createElement("SPAN");
+	  var txt = document.createTextNode("\u00D7");
+	  span.className = "close";
+	  span.appendChild(txt);
+	  myNodelist[i].appendChild(span);
+	}
 
+	// Click on a close button to hide the current list item
+	var close = document.getElementsByClassName("close");
+	var i;
+	for (i = 0; i < close.length; i++) {
+	  close[i].onclick = function() {
+	    var div = this.parentElement;
+	    div.style.display = "none";
+	  }
+	}
+
+	// Add a "checked" symbol when clicking on a list item
+	var list = document.querySelector('ul');
+	list.addEventListener('click', function(ev) {
+	  if (ev.target.tagName === 'LI') {
+	    ev.target.classList.toggle('checked');
+	  }
+	}, false);
+
+	// Create a new list item when clicking on the "Add" button
+	function newElement() {
+	  var li = document.createElement("li");
+	  var inputValue = document.getElementById("myInput").value;
+	  var t = document.createTextNode(inputValue);
+	  li.appendChild(t);
+	  if (inputValue === '') {
+	    alert("pls write something!");
+	  } else {
+	    document.getElementById("myUL").appendChild(li);
+	  }
+	  document.getElementById("myInput").value = "";
+
+	  var span = document.createElement("SPAN");
+	  var txt = document.createTextNode("\u00D7");
+	  span.className = "close";
+	  span.appendChild(txt);
+	  li.appendChild(span);
+
+	  for (i = 0; i < close.length; i++) {
+	    close[i].onclick = function() {
+	      var div = this.parentElement;
+	      div.style.display = "none";
+	    }
+	  }
+	}
+</script>
 </body>
 </html>
