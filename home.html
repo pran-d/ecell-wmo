@@ -71,7 +71,21 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     	</div>
     </div>
 
-    <div class="grid-item todo">
+    <div class="grid-item">
+    	<div id="budgetTracker" class="header">
+    		<h2>Budget Tracker</h2>
+    		<input type="number" id="amountInput" placeholder="Enter amount...">
+    		<span onclick="updateBudget(1)" class="budgetBtn exp">New expense</span>
+    		<span onclick="updateBudget(2)" class="budgetBtn inc">New income</span>
+    	</div>
+    	<div class="col">
+    		<span id = "savings">Total balance = <span id="result1"></span></span>
+    		<br>
+    		<span id = "expenditure">Total expenditure = <span id="result2"></span></span>
+    	</div>
+    </div>
+
+    <div class="grid-item">
     	<div id="myDIV" class="header">
 		  <h2>To-Do List</h2>
 		  <input type="text" id="myInput" placeholder="Enter task...">
@@ -143,6 +157,33 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 	    }
 	  }
 	}
+
+	var expenses = 0;
+	var balance = 0;
+
+	function updateBudget(ch){
+		var am = Number(document.getElementById("amountInput").value);
+		if(ch==1)
+		{
+			if(am<=balance)
+			{
+				expenses+=am;
+				balance-=am;
+			}
+			else
+				alert("you don't have enough money!");
+		}
+		else
+		{
+			 balance+=am;
+		}
+
+		document.getElementById("result1").innerHTML = balance;
+		document.getElementById("result2").innerHTML = expenses;
+		document.getElementById("amountInput").value = "";
+	}
+
+
 </script>
 </body>
 </html>

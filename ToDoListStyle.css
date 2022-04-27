@@ -77,13 +77,10 @@
 
 	.container{
 		padding: 20px;
-		column-gap: 10px;
+		padding-top: 0px!important;
+		column-gap: 20px;
 		display: grid;
 		grid-template-columns: 25% 40% 35%;
-	}
-
-	.todo{
-		grid-column-start: 3;
 	}
 
 	/* Include the padding and border in an element's total width and height */
@@ -92,13 +89,13 @@
 	}
 
 	/* Remove margins and padding from the list */
-	ul {
+	#myUL {
 	  margin: 0;
 	  padding: 0;
 	}
 
 	/* Style the list items */
-	ul li {
+	#myUL li {
 	  cursor: pointer;
 	  position: relative;
 	  padding: 12px 8px 12px 40px;
@@ -114,24 +111,24 @@
 	}
 
 	/* Set all odd list items to a different color (zebra-stripes) */
-	ul li:nth-child(odd) {
+	#myUL li:nth-child(odd) {
 	  background: #fafafa;
 	}
 
 	/* Darker background-color on hover */
-	ul li:hover {
+	#myUL li:hover {
 	  background: #ddd;
 	}
 
 	/* When clicked on, add a background color and strike out text */
-	ul li.checked {
+	#myUL li.checked {
 	  background: #888;
 	  color: #fff;
 	  text-decoration: line-through;
 	}
 
 	/* Add a "checked" mark when clicked on */
-	ul li.checked::before {
+	#myUL li.checked::before {
 	  content: '';
 	  position: absolute;
 	  border-color: #fff;
@@ -200,3 +197,39 @@
 	.addBtn:hover {
 	  background-color: #bbb;
 	}
+
+	.budgetBtn {
+	  padding: 9px;
+	  width: 50%;
+	  color: #555;
+	  float: left;
+	  text-align: center;
+	  font-size: 16px;
+	  cursor: pointer;
+	  transition: 0.3s;
+	}
+	.exp{
+		background: #ff8080;
+	}
+	.inc{
+		background: #c5fbc9;
+	}
+	.budgetBtn:hover {
+	  transform: scale(0.9);
+	}
+	.col{
+		background-color: #ccc;
+		padding: 10px;
+		color: black;
+	}
+	#amountInput{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	#savings{
+		font-size: 20px;
+	}
+	#expenditure{
+		font-size: 20px;
+	}
+
