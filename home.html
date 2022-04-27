@@ -24,7 +24,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="grid-item">
     	<div class="white text-grey">
       		<h1> Pranav Debbad </h1>
-      	</div>
+      </div>
     	<div class = "calendar">
     		<div class = "grid-container">
     			<div class = "grid-item col1"><i class="arrow left"></i></div>
@@ -77,6 +77,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     		<input type="number" id="amountInput" placeholder="Enter amount...">
     		<span onclick="updateBudget(1)" class="budgetBtn exp">New expense</span>
     		<span onclick="updateBudget(2)" class="budgetBtn inc">New income</span>
+    		<span onclick="updateBudget(3)" class="addBtn alignRight">reset</span>
     	</div>
     	<div class="col">
     		<span id = "savings">Total balance = <span id="result1"></span></span>
@@ -98,6 +99,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 		  <li>Meet Ishaan</li>
 		  <li>Buy eggs</li>
 		</ul>
+    </div>
+
+    <div class="grid-item span3">
+    	<div class="notif">
+    		<h2>Notifications:</h2>
+    		<ul id="notif">
+    			<li><span class="name">nishanth nathaniel mages</span>:&nbsp;&nbsp;wanna meet at 8 at usha?<i class="fa fa-eye-slash"></i></span></li>
+    			<li><span class="name">surya sai pranav mantripragada</span>:&nbsp;&nbsp;i fucked your mom<i class="fa fa-eye-slash"></i></li>
+    			<li><span class="name">kanish thiagarajan</span>:&nbsp;&nbsp;i miss vaidehi and i love pooja<i class="fa fa-eye-slash"></i></li>
+    		</ul>
     </div>
    
 </div>
@@ -173,15 +184,35 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 			else
 				alert("you don't have enough money!");
 		}
-		else
+		else if (ch==2)
 		{
 			 balance+=am;
+		}
+		else
+		{
+			expenses=0;
+			balance=0;
 		}
 
 		document.getElementById("result1").innerHTML = balance;
 		document.getElementById("result2").innerHTML = expenses;
 		document.getElementById("amountInput").value = "";
 	}
+
+	document.addEventListener('click', function handleClick(event) {
+  event.target.classList.toggle('read');;
+  var elms = event.target.getElementsByTagName('i')[0];
+  if(elms.classList.contains('fa-eye-slash'))
+  {
+  	elms.classList.remove('fa-eye-slash');
+ 	 	elms.classList.add('fa-eye');
+	}
+	else
+	{
+		elms.classList.add('fa-eye-slash');
+ 	 	elms.classList.remove('fa-eye');
+	}
+	});
 
 
 </script>

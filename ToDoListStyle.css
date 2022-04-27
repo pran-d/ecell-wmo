@@ -1,5 +1,5 @@
 	.light-grey{
-		background-color: #f1d1d1!important
+		background-color: #333333!important
 	}
 	.content{
 		max-width: 980px;
@@ -77,10 +77,11 @@
 
 	.container{
 		padding: 20px;
+		padding-left: 0px!important;
 		padding-top: 0px!important;
 		column-gap: 20px;
 		display: grid;
-		grid-template-columns: 25% 40% 35%;
+		grid-template-columns: 25% 44% 30%;
 	}
 
 	/* Include the padding and border in an element's total width and height */
@@ -92,6 +93,7 @@
 	#myUL {
 	  margin: 0;
 	  padding: 0;
+	  list-style: none
 	}
 
 	/* Style the list items */
@@ -162,6 +164,14 @@
 	  text-align: center;
 	}
 
+	.notif{
+		margin-top: 20px;
+		background-color: #009393;
+		padding: 10px 10px;
+		color: white;
+	  	text-align: center;
+	}
+
 	/* Clear floats after the header */
 	.header:after {
 	  content: "";
@@ -182,7 +192,7 @@
 
 	/* Style the "Add" button */
 	.addBtn {
-	  padding: 9px;
+	  padding: 10px;
 	  width: 25%;
 	  background: #d9d9d9;
 	  color: #555;
@@ -232,4 +242,44 @@
 	#expenditure{
 		font-size: 20px;
 	}
-
+	.alignRight{
+		margin-top: 10px;
+		float: right!important;
+		padding: 5px!important;
+	}
+	.span3
+	{
+		grid-column-start: 2;
+		grid-column-end: 4;
+	}
+	#notif li{
+		cursor: pointer;
+		text-align: left;
+		padding: 12px 8px 12px 40px;
+	  	background: white;
+	  	border: solid;
+	  	border-color: black;
+	  	color: black;
+	  	font-family: 'Times New Roman', sans-serif;
+	  	font-size: 20px;
+	}
+	.name{
+		font-size: 15px!important;
+		font-weight: bold;
+		font-family: Helvetica, sans-serif;
+	}
+	.square {
+	  height: 5px;
+	  width: 5px;
+	  background-color: #555;
+	}
+	.fa{
+		float: right;
+	}
+	#notif{
+		list-style: none;
+	}
+	#notif li.read {
+	  background: #ccc!important;
+	  color: black;
+	}
