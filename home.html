@@ -10,6 +10,10 @@
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </style>
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body class="light-grey">
 
@@ -18,14 +22,28 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
   <!-- The Grid -->
   <div class="row-padding">
-  
-  <div class="container">
+
+	<div class="white">
+	  <h1> Pranav Debbad's Personal Dashboard </h1>
+	</div>
+
+	<div class="navbar">
+		<a href="#">Search&nbsp;<i class="fa fa-search"></i></a>
+		<a href="#">Home&nbsp;<i class="fa fa-home"></i></a>
+	  <a href="#notif">Inbox&nbsp;<i class="fa fa-envelope"></i></a>
+		<a href="https://www.bbc.com/news/world" target="_blank">Global News&nbsp;<i class="fa fa-globe"></i></a>
+		<a href="#">Announcements&nbsp;<i class="fa fa-bullhorn"></i></a>
+		<a href="#calendar">Calendar&nbsp;<i class="fa fa-calendar"></i></a>
+		<a href="#">Contact&nbsp;<i class="fa fa-phone"></i></a>
+		<a href="#">Settings&nbsp;<i class="fa fa-gear"></i></a>
+		<a href="#">Profile&nbsp;<i class="fa fa-user-circle"></i></a>
+		<a href="#">Logout&nbsp;<i class="fa fa-sign-out"></i></a>
+	</div>
+
+
+  <div class="flex-container">
     <!-- Left Column -->
-    <div class="grid-item">
-    	<div class="white text-grey">
-      		<h1> Pranav Debbad </h1>
-      </div>
-    	<div class = "calendar">
+    <div class="flex-item" id="calendar">
     		<div class = "grid-container">
     			<div class = "grid-item col1"><i class="arrow left"></i></div>
     			<div class = "month grid-item">April</div>
@@ -68,10 +86,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     			<div class = "grid-item">29</div>
     			<div class = "grid-item">30</div>
     		</div>
-    	</div>
     </div>
 
-    <div class="grid-item">
+    <div class="flex-item">
     	<div id="budgetTracker" class="header">
     		<h2>Budget Tracker</h2>
     		<input type="number" id="amountInput" placeholder="Enter amount...">
@@ -86,32 +103,32 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     	</div>
     </div>
 
-    <div class="grid-item">
+    <div class="flex-item">
     	<div id="myDIV" class="header">
-		  <h2>To-Do List</h2>
-		  <input type="text" id="myInput" placeholder="Enter task...">
-		  <span onclick="newElement()" class="addBtn">Add</span>
-		</div>
+		  	<h2>To-Do List</h2>
+		  	<input type="text" id="myInput" placeholder="Enter task...">
+		  	<span onclick="newElement()" class="addBtn">Add</span>
+			</div>
 
-		<ul id="myUL">
-		  <li>Hit the gym</li>
-		  <li class="checked">Pay bills</li>
-		  <li>Meet Ishaan</li>
-		  <li>Buy eggs</li>
-		</ul>
+			<ul id="myUL">
+			  <li>Hit the gym</li>
+			  <li class="checked">Pay bills</li>
+			  <li>Meet Ishaan</li>
+			  <li>Buy eggs</li>
+			</ul>
     </div>
+  </div>
 
-    <div class="grid-item span3">
-    	<div class="notif">
-    		<h2>Notifications:</h2>
-    		<ul id="notif">
-    			<li><span class="name">nishanth nathaniel mages</span>:&nbsp;&nbsp;wanna meet at 8 at usha?<i class="fa fa-eye-slash"></i></span></li>
-    			<li><span class="name">surya sai pranav mantripragada</span>:&nbsp;&nbsp;i fucked your mom<i class="fa fa-eye-slash"></i></li>
-    			<li><span class="name">kanish thiagarajan</span>:&nbsp;&nbsp;i miss vaidehi and i love pooja<i class="fa fa-eye-slash"></i></li>
-    		</ul>
-    </div>
+  <div class="notific">
+    	<h2>Notifications</h2>
+    	<ul id="notif">
+    		<li><span class="name">nishanth nathaniel mages</span>:&nbsp;&nbsp;wanna meet at 8 at usha?<i class="fa fa-eye-slash"></i></span></li>
+    		<li><span class="name">surya sai pranav mantripragada</span>:&nbsp;&nbsp;i fucked your mom<i class="fa fa-eye-slash"></i></li>
+    		<li><span class="name">kanish thiagarajan</span>:&nbsp;&nbsp;i miss vaidehi and i love pooja<i class="fa fa-eye-slash"></i></li>
+    		<li><span class="name">adithyaa rg</span>:&nbsp;&nbsp;i want cheese maggi at usha!!!<i class="fa fa-eye-slash"></i></li>
+    	</ul>
+ 	</div>
    
-</div>
 
 <script>
 	var myNodelist = document.getElementsByTagName("LI");
@@ -200,20 +217,23 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 	}
 
 	document.addEventListener('click', function handleClick(event) {
-  event.target.classList.toggle('read');;
   var elms = event.target.getElementsByTagName('i')[0];
-  if(elms.classList.contains('fa-eye-slash'))
+  if(elms.classList.contains('fa')&&(elms.classList.contains('fa-eye')||elms.classList.contains('fa-eye-slash')))
   {
-  	elms.classList.remove('fa-eye-slash');
- 	 	elms.classList.add('fa-eye');
-	}
-	else
-	{
-		elms.classList.add('fa-eye-slash');
- 	 	elms.classList.remove('fa-eye');
+	  if(elms.classList.contains('fa-eye-slash'))
+	  {
+	  	event.target.classList.toggle('read');
+	  	elms.classList.remove('fa-eye-slash');
+	 	 	elms.classList.add('fa-eye');
+		}
+		else
+		{
+			event.target.classList.toggle('read');
+			elms.classList.add('fa-eye-slash');
+	 	 	elms.classList.remove('fa-eye');
+		}
 	}
 	});
-
 
 </script>
 </body>
