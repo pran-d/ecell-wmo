@@ -187,6 +187,7 @@
 	}
 
 	.notific{
+		width: 100%;
 		margin-top: 20px;
 		font-size: 20px;
 		background-color: #009393;
@@ -276,6 +277,7 @@
 		grid-column-end: 4;
 	}*/
 	#notif li{
+		width: 100%;
 		cursor: pointer;
 		text-align: left;
 		padding: 12px 8px 12px 40px;
@@ -329,6 +331,47 @@
 	.navbar a:hover {
 	  background-color: #ddd;
 	  color: black;
+	}
+
+	.notes{
+		margin-top: 10px;
+		font-size: 20px;
+		background-color: #009393;
+		padding: 10px 50px;
+		color: white;
+	  	text-align: center;
+	}
+
+	#notepad{
+		max-width: device-width;
+		margin: 0;
+	  	padding: 0;
+	  	list-style: none;
+	}
+
+
+	#notepad li{
+		max-width: 100%;
+		text-align: left;
+	  	font-family: 'Times New Roman', sans-serif;
+		cursor: pointer;
+	  	position: relative;
+	  	padding: 12px 8px 12px 40px;
+	  	color: white;
+	  	background: #003333;
+	  	font-size: 18px;
+	  	transition: 0.2s;
+	  	overflow-wrap: break-word;
+
+	 	/* make the list items unselectable */
+	  	-webkit-user-select: none;
+	  	-moz-user-select: none;
+	  	-ms-user-select: none;
+	  	user-select: none;
+	}
+
+	.note{
+		width: 100%;
 	}
 
 

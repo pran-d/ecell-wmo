@@ -117,18 +117,30 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 			  <li>Buy eggs</li>
 			</ul>
     </div>
-  </div>
 
-  <div class="notific">
+  <div class="flex-item notific">
     	<h2>Notifications</h2>
     	<ul id="notif">
     		<li><span class="name">nishanth nathaniel mages</span>:&nbsp;&nbsp;wanna meet at 8 at usha?<i class="fa fa-eye-slash"></i></span></li>
     		<li><span class="name">surya sai pranav mantripragada</span>:&nbsp;&nbsp;i fucked your mom<i class="fa fa-eye-slash"></i></li>
     		<li><span class="name">kanish thiagarajan</span>:&nbsp;&nbsp;i miss vaidehi and i love pooja<i class="fa fa-eye-slash"></i></li>
     		<li><span class="name">adithyaa rg</span>:&nbsp;&nbsp;i want cheese maggi at usha!!!<i class="fa fa-eye-slash"></i></li>
+    		<li><span class="name">leon davis</span>:&nbsp;&nbsp;any biharis here dm me ;)<i class="fa fa-eye-slash"></i></li>
     	</ul>
  	</div>
-   
+
+ 	<div class="flex-item note">
+	 	<div class = "notes header" >
+	 		<h2>My Notes</h2>
+	 		<input type="text" id="myInput1" placeholder="Enter note">
+	 		<span onclick="newElement1()" class="addBtn">+</span>
+	 	</div>
+
+	 	<ul id="notepad">
+	 	</ul>
+
+	</div>
+ </div> 
 
 <script>
 	var myNodelist = document.getElementsByTagName("LI");
@@ -147,7 +159,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 	for (i = 0; i < close.length; i++) {
 	  close[i].onclick = function() {
 	    var div = this.parentElement;
-	    div.style.display = "none";
+	   	div.style.display = "none";
 	  }
 	}
 
@@ -171,6 +183,32 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 	    document.getElementById("myUL").appendChild(li);
 	  }
 	  document.getElementById("myInput").value = "";
+
+	  var span = document.createElement("SPAN");
+	  var txt = document.createTextNode("\u00D7");
+	  span.className = "close";
+	  span.appendChild(txt);
+	  li.appendChild(span);
+
+	  for (i = 0; i < close.length; i++) {
+	    close[i].onclick = function() {
+	      var div = this.parentElement;
+	      div.style.display = "none";
+	    }
+	  }
+	}
+
+	function newElement1() {
+	  var li = document.createElement("li");
+	  var inputValue = document.getElementById("myInput1").value;
+	  var t = document.createTextNode(inputValue);
+	  li.appendChild(t);
+	  if (inputValue === '') {
+	    alert("pls write something!");
+	  } else {
+	    document.getElementById("notepad").appendChild(li);
+	  }
+	  document.getElementById("myInput1").value = "";
 
 	  var span = document.createElement("SPAN");
 	  var txt = document.createTextNode("\u00D7");
